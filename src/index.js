@@ -1,8 +1,9 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 // import { App } from 'components/App';
 import './index.css';
+import paintings from './gallery-items';
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
 //   <React.StrictMode>
@@ -13,19 +14,30 @@ import './index.css';
 // const elem1 = React.createElement('span', { children: 'Hello' });
 const elem1 = <span>Hello</span>;
 React.createElement('span', { children: 'world' });
+// const data = {
+//     preview:'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+//     original:'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
+//     description: 'Hokkaido Flower',
+//     }
+const data = paintings[0];
 
 const painting = (
-  <div>
-    <img src="" alt="" width="480"></img>
-    <h2></h2>
-    <p>Author: <a href="" ></a></p>
-    <p>Price: $</p>
-    <p>Store: </p>
-    <button type=""></button>
-  </div>
-
+  <div >
+  <a  href="{data.original}">
+      <img
+      src={data.preview}
+      data-source={data.original}
+      alt={data.description}
+      />
+    </a>
+    
+    <p>
+      {data.description}
+    </p>
+</div>
 );
 
+ReactDOM.render(painting, document.querySelector('#root'));
 
 
 // const elem2 = React.createElement('span', { children: 'world' });
