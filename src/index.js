@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { App } from 'components/App';
 import './index.css';
-import paintings from './gallery-items';
+import galleryItems from './gallery-items';
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
 //   <React.StrictMode>
@@ -19,9 +19,9 @@ React.createElement('span', { children: 'world' });
 //     original:'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
 //     description: 'Hokkaido Flower',
 //     }
-const data = paintings[0];
+const data = galleryItems[0];
 
-const painting = (
+function Painting (props) {
   <div >
   <a  href="{data.original}">
       <img
@@ -35,9 +35,9 @@ const painting = (
       {data.description}
     </p>
 </div>
-);
+};
 
-ReactDOM.render(painting, document.querySelector('#root'));
+ReactDOM.render(<Painting/>, document.querySelector('#root'));
 
 
 // const elem2 = React.createElement('span', { children: 'world' });
