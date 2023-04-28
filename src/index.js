@@ -1,70 +1,88 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 // import { App } from 'components/App';
 import './index.css';
-import galleryItems from './gallery-items';
+import galleryItems from './gallery-items.js';
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+  <React.StrictMode>
+    {/* <App /> */}
+  </React.StrictMode>
+);
 
 // const elem1 = React.createElement('span', { children: 'Hello' });
-const elem1 = <span>Hello</span>;
-React.createElement('span', { children: 'world' });
+
+// ReactDom.createRoot('span', { children: 'world' });
 // const data = {
 //     preview:'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
 //     original:'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
 //     description: 'Hokkaido Flower',
 //     }
-const data = galleryItems[0];
+// const data = galleryItems[0];
 
-function Painting (props) {
-  <div >
-  <a  href="{data.original}">
+const data = {
+  preview:
+    'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+  original:
+    'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
+  description: 'Hokkaido Flower',
+};
+
+
+const Painting = props => {
+  return (
+  <div id = "main_id" className='test_class'>
+  <a  href={props.original}>
       <img
-      src={data.preview}
-      data-source={data.original}
-      alt={data.description}
+      src={props.preview}
+      data-source={props.original}
+      alt={props.description}
       />
     </a>
     
     <p>
-      {data.description}
+      {props.description}
     </p>
 </div>
-};
+);}
 
-ReactDOM.render(<Painting/>, document.querySelector('#root'));
-
+// root.render(<Painting data />);
 
 // const elem2 = React.createElement('span', { children: 'world' });
-const elem2 = <span>world</span>;
+
+// const elem1 = <span>Hello</span>;
+// const elem2 = <span>world</span>;
 
 // const element = React.createElement('div', {
 //   a: 5,
 //   b: 10,
 //   children: [elem1, ' ', elem2],
 // });
+const Paragraph = (props) => {
+  console.log(props);
+  return <p className={props.className}> {props.children}, I'm React</p>;
+};
 
-const jsxElement = (
-  <div >
-  { elem1 }
-  {elem2}  
-  </div >
-);
+const JsxElement = () => {
+  return (
+    <div id="id"
+      className="test_class">
+      <Paragraph className="par_class">Hello world</Paragraph>
+    </div >);
+};
 
-console.log(jsxElement);
 
-// const element = React.createElement('div', { a: 5, b: 10 }, 'Hello', ' ', 'world');
+
+
+console.log(JsxElement);
+
+// const element = React.createElement('div', { a: 5, b: 10 }, 'Hello', '  ', 'world');
 // console.log(element);
-
+root.render(<JsxElement />);
 // const jsxElement = <div>Hello world</div>
-// console.log(jsxElement);
 
 
-// ReactDOM.render(element, document.querySelector('#root'));
 
 
