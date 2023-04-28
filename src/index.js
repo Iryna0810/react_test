@@ -1,14 +1,18 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
-// import { App } from 'components/App';
+import { App } from 'components/App';
 import './index.css';
-import galleryItems from './gallery-items.js';
+import { galleryItems } from './components/gallery-items';
+
+export * from "./components/Paragraph";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
   </React.StrictMode>
 );
 
@@ -60,27 +64,15 @@ const Painting = props => {
 //   b: 10,
 //   children: [elem1, ' ', elem2],
 // });
-const Paragraph = (props) => {
-  console.log(props);
-  return <p className={props.className}> {props.children}, I'm React</p>;
-};
-
-const JsxElement = () => {
-  return (
-    <div id="id"
-      className="test_class">
-      <Paragraph className="par_class">Hello world</Paragraph>
-    </div >);
-};
 
 
 
 
-console.log(JsxElement);
+
 
 // const element = React.createElement('div', { a: 5, b: 10 }, 'Hello', '  ', 'world');
 // console.log(element);
-root.render(<JsxElement />);
+// root.render(<JsxElement />);
 // const jsxElement = <div>Hello world</div>
 
 

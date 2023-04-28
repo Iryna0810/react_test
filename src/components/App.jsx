@@ -1,16 +1,18 @@
-export const App = () => {
+import { JsxElement } from "./Main";
+
+ export const App = () => {
   return (
     <div
       style={{
         height: '100vh',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'start',
         fontSize: 40,
         color: '#010101'
       }}
     >
-      React homework template
+      <JsxElement />
     </div>
   );
 };
