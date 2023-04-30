@@ -1,11 +1,11 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
+import { App } from './components/App';
 import './index.css';
 import { galleryItems } from './components/gallery-items';
 
-export * from "./components/Paragraph";
+// export * from "./components/Paragraph";
 
 
 
