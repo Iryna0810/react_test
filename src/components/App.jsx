@@ -1,20 +1,27 @@
-import { JsxElement } from "./Main";
+import { Cards } from "./Cards/Cards";
+import { Main } from "./Main/Main";
+import bootstrap from 'bootstrap';
 
- export const App = () => {
+function App() {
   return (
     <div
       style={{
+
         height: '100vh',
-        display: 'flex',
+        display: 'block',
         justifyContent: 'center',
         alignItems: 'start',
         fontSize: 40,
         color: '#010101'
-      }}
-    >
-      <JsxElement />
+        //  font: '1rem/ 1.5 var(--bs - font - sans - serif)',
+        // color: 'var(--bs - blue)'
+   
+}}>
+        
+      <Main />
+      <Cards />
     </div>
   );
-};
+}
 
-
+export { App };

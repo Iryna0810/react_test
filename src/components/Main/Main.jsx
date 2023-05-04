@@ -1,6 +1,6 @@
-import { Paragraph } from "./Paragraph";
+import { Paragraph } from "../Paragraph/Paragraph";
 
-export const JsxElement = () => {
+export const Main = () => {
     return (
         <div id="id"
             className="test_class">
