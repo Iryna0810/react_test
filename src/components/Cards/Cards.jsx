@@ -1,4 +1,6 @@
 import photos from './gallery-items.json'
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const cards = photos.map((photo) => 
     (
@@ -25,7 +27,7 @@ export const Cards = () => {
         <div id="main_id" className="row container mx-auto my-5">
         {photos.map((photo) => 
     (
-    <div className="card col-4" key={photo.id}>
+    <div className="card col-4 " key={photo.id}>
         <a href="asdas">
             <img
                 className="card-img-top"

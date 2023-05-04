@@ -1,6 +1,11 @@
+// @import-normalize;
+import { ThemeProvider } from "styled-components";
 import { Cards } from "./Cards/Cards";
 import { Main } from "./Main/Main";
 import bootstrap from 'bootstrap';
+import { light } from "theme";
+import Counter from "./Counter/Counter";
+
 
 function App() {
   return (
@@ -17,9 +22,12 @@ function App() {
         // color: 'var(--bs - blue)'
    
 }}>
-        
+      <ThemeProvider theme={light}>
       <Main />
-      <Cards />
+        {/* <Cards /> */}
+        <Counter />
+      </ThemeProvider> 
+
     </div>
   );
 }
