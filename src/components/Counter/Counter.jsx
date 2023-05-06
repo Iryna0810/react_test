@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import './counter.css';
+import Controls from "./Controls";
 import { Button } from "bootstrap";
 
 class Counter extends React.Component {
@@ -10,9 +12,20 @@ class Counter extends React.Component {
     //         value: 500,
     //     }
     // }
+/*якщо не передано значення props використовуємо значення за default, яке прописуємо в 
+статичній властивості defaultProps*/
+      
+    static defaultProps = {
+        initialValue: 0,
+    }
+    /*також можна прописати і propTypes в статичній властивості*/
+    
+    static propTypes = {
+    initialValue: PropTypes.number.isRequired,
+}
 
     state = {
-        value: 5001,
+        value: this.props.initialValue,
     }; /*публічна властивість*/
 
 
@@ -24,9 +37,22 @@ class Counter extends React.Component {
         // this.state.value = 1000; /*так робити не можна!!!*/
         /*------------метод setState (update, callback)-------------*/
         /*для того, щоб оновити state від попереднього стану, наприклад додати/відняти якесь число
-        ми маємо передавати в setState не параметр, а функцію, параметр оновить повністю */
+        ми маємо передавати в setState не параметр, а функцію, параметр оновить повністю. react в параметр такої 
+        функції prevState запише поточний стан state */
         
         this.setState(prevState => {
+            return {
+                value: prevState.value + 1,
+            };
+            
+        });
+        /* wuthout return*/
+            this.setState(prevState => ({
+             value: prevState.value + 1,
+            })
+            
+        );
+            this.setState(prevState => {
             return {
                 value: prevState.value + 1,
             };
@@ -47,7 +73,7 @@ class Counter extends React.Component {
         // newState = {
         //     ...currState, ...update} 
    
-    handleDecremnt = (event) => {
+    handleDecrement = (event) => {
         console.log('Click on decrease');
 
         // const target = event.target;
@@ -70,12 +96,10 @@ class Counter extends React.Component {
         return (
             <div className="counter">
                 <span className="counter__value">{ this.state.value}</span>
-                <div className="counter__controls">
-                    <button type="button" className='btn btn-primary btn-lg' onClick={
-                       this.handleIncrement} >Збільшити на 1</button>
-                    <button type="button" className='btn btn-primary btn-lg' onClick={
-                        this.handleDecremnt}>Зменьшити на 1</button>
-                </div>
+                <Controls
+                    onIncrement={this.handleIncrement}
+                    onDecrement={this.handleDecrement}
+                />
         </div> 
     )
 }

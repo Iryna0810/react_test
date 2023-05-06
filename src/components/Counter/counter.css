@@ -9,3 +9,23 @@
     gap: 20px
     ;
 }
+.Dropdown {
+    position: relative;
+    border: 2px solid teal;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+}
+.Dropdown__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: teal;
+    color: #fff;
+    }

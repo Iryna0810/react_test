@@ -1,10 +1,12 @@
 // @import-normalize;
 import { ThemeProvider } from "styled-components";
-import { Cards } from "./Cards/Cards";
+// import { Cards } from "./Cards/Cards";
 import { Main } from "./Main/Main";
 import bootstrap from 'bootstrap';
 import { light } from "theme";
 import Counter from "./Counter/Counter";
+// import { Toggle } from "./Main/toggle";
+import Dropdown from "./Dropdown/Dropdown";
 
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
       <ThemeProvider theme={light}>
       <Main />
         {/* <Cards /> */}
-        <Counter />
+        <Counter initialValue={10} />
+        {/* <Toggle /> */}
+        <Dropdown/>
       </ThemeProvider> 
 
     </div>
