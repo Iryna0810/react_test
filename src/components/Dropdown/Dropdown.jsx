@@ -1,9 +1,25 @@
 import React, { Component } from "react";
 import { bootstrap } from "bootstrap";
+import styled, { ThemeProvider } from 'styled-components'
+import theme from 'styled-theming';
+import { DARK } from "theme";
+import { LIGHT } from "theme";
+
+const boxBackgroundColor = theme('mode', {
+  light: '#15f928',
+  dark: '#000',
+})
+
+const Box = styled.div`
+  background-color: ${boxBackgroundColor};
+`;
+
+
 
 class Dropdown extends Component {
     state = {
         visible: false,
+        theme: DARK,
     }
 
     show = () => {
@@ -18,11 +34,19 @@ class Dropdown extends Component {
         this.setState(prevState => ({
             visible: !prevState.visible,
         }))
-    }
+    };
+    handleChange = () => {
+        this.setState(
+            {
+                theme: LIGHT,
+            })
+};
 
     render() {
+        // console.log(this.props);
         return (
-            <div className="Dropdown">
+            <ThemeProvider theme={{ mode: 'light' }}>
+                <Box className="Dropdown">
                 {/* <button type="button"
                     className="btn btn-primary btn-lg Dropdown__toggle"
                     onClick={this.show}>
@@ -39,9 +63,14 @@ class Dropdown extends Component {
                     {this.state.visible ? 'Hide' : 'Show'}
                 </button>
                 
-                {this.state.visible && (<div className="Dropdown__menu">Bubble Menu</div>)}
+                    {this.state.visible && (<div className="Dropdown__menu">Bubble Menu</div>)}
+                    <input type="text" onChange={this.handleChange} />
+                    <p>{ this.state.theme}</p>
                 
-            </div>
+            </Box>
+
+            </ThemeProvider>
+            
         )
     }
 }

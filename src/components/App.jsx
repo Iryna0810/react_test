@@ -7,6 +7,7 @@ import { light } from "theme";
 import Counter from "./Counter/Counter";
 // import { Toggle } from "./Main/toggle";
 import Dropdown from "./Dropdown/Dropdown";
+import { Product } from "./Cards/Card_test";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
         {/* <Cards /> */}
         <Counter initialValue={10} />
         {/* <Toggle /> */}
-        <Dropdown/>
+        <Dropdown text="Some text"/>
+        <Product/>
       </ThemeProvider> 
 
     </div>
