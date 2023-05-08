@@ -1,25 +1,23 @@
-// @import-normalize;
 import { ThemeProvider } from "styled-components";
 // import { Cards } from "./Cards/Cards";
 import { Main } from "./Main/Main";
 import bootstrap from 'bootstrap';
-import { themes } from "../theme";
+import { theme } from "./theme";
 import { DARK, LIGHT } from "./constant/theme";
 import Counter from "./Counter/Counter";
 // import { Toggle } from "./Main/toggle";
 import Dropdown from "./Dropdown/Dropdown";
 import { Component } from "react";
-import theme from "styled-theming";
 // import { Product } from "./Cards/Card_test";
 
 
 export class App extends Component {
   state = {
     theme: LIGHT,
-  };
-  
+  }
+
   themeTogler = (e) => {
-    if (this.states.theme === e.target.name) return;
+    if (this.state.theme === e.target.name) return;
 
     this.setState((prevState) => ({
       theme: prevState.theme === LIGHT ? DARK : LIGHT,
@@ -29,16 +27,15 @@ export class App extends Component {
 render() {
 
   return(
-      <div
+      <ThemeProvider theme={this.state.theme}
       style={{
-
         height: '100vh',
         display: 'block',
         justifyContent: 'center',
         alignItems: 'start',
         fontSize: 40,
-        color: 'primery',
-        backgroundColor: 'secondary'
+        // color: 'primery',
+        // backgroundColor: 'secondary'
         //  font: '1rem/ 1.5 var(--bs - font - sans - serif)',
         // color: 'var(--bs - blue)'
    
@@ -55,7 +52,7 @@ render() {
         {/* <Product/> */}
   
 
-    </div>
+    </ThemeProvider>
   );
   }
 }

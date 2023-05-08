@@ -1,18 +1,20 @@
 import { Paragraph } from "../Paragraph/Paragraph";
 import { Button } from "./styled";
 import React, { Component } from "react";
-import { DARK, LIGHT } from "../constant/theme.js";
+import { DARK, LIGHT } from "../constant/theme";
 
 export class Main extends Component {
+
     handleClick = (e) => {
         if (this.state.theme === e.target.name) return;
+
         this.setState((prevState) => ({
             theme: prevState.theme === LIGHT ? DARK : LIGHT,
             customText: "Custom text",
         }));
     };
 
-    render(props) {
+    render() {
         const { onToggle, theme } = this.props;
         
         return (
@@ -21,8 +23,8 @@ export class Main extends Component {
                 <div>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab suscipit odit quod natus eum temporibus quis ad eligendi quia consectetur. Modi deleniti fuga hic, autem eaque commodi culpa pariatur repellendus dolore fugit quos obcaecati dicta minus voluptates consequuntur iusto esse velit, voluptate excepturi inventore qui totam. Ut impedit optio iste.
                 </div>
-                <Button isActive={theme === DARK} name='DARK' onClick={onToggle}>Dark</Button>
-                <Button isActive={theme === LIGHT} name='LIGHT' onClick={onToggle}>Light</Button>
+                <button isActive={theme === DARK} name={DARK} onClick={onToggle}>Dark</button>
+                <button isActive={theme === LIGHT} name={LIGHT} onClick={onToggle}>Light</button>
             </div >
         );
     };
