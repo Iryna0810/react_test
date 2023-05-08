@@ -27,7 +27,7 @@ export class App extends Component {
 render() {
 
   return(
-      <ThemeProvider theme={this.state.theme}
+      <div
       style={{
         height: '100vh',
         display: 'block',
@@ -52,7 +52,7 @@ render() {
         {/* <Product/> */}
   
 
-    </ThemeProvider>
+    </div>
   );
   }
 }
