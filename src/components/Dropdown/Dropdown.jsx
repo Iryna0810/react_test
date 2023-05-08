@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { bootstrap } from "bootstrap";
 import styled, { ThemeProvider } from 'styled-components'
 import theme from 'styled-theming';
-import { DARK } from "theme";
-import { LIGHT } from "theme";
+// import { themes } from "theme";
+import { DARK, LIGHT } from "../constant/theme";
+// import { LIGHT } from "theme";
 
 const boxBackgroundColor = theme('mode', {
   light: '#15f928',
@@ -35,11 +36,21 @@ class Dropdown extends Component {
             visible: !prevState.visible,
         }))
     };
-    handleChange = () => {
-        this.setState(
-            {
-                theme: LIGHT,
-            })
+    handleClick = () => {
+        // if (this.state.theme === LIGHT) {
+        //     this.setState({
+        //        theme: DARK,
+        //    })
+        // }
+        // if (this.state.theme === DARK) {
+        //     this.setState({
+        //        theme: LIGHT,
+        //    })
+        // }
+        
+        this.setState((prevState) => 
+               ({theme: prevState.theme === DARK ? LIGHT : DARK,})            
+        )
 };
 
     render() {
@@ -65,7 +76,12 @@ class Dropdown extends Component {
                 
                     {this.state.visible && (<div className="Dropdown__menu">Bubble Menu</div>)}
                     <input type="text" onChange={this.handleChange} />
-                    <p>{ this.state.theme}</p>
+                    <p>{this.state.theme}</p>
+                                     
+                    <button type="button"
+                    className="btn btn-primary btn-lg"
+                    onClick={this.handleClick}>Theme
+                </button>
                 
             </Box>
 
